@@ -9,6 +9,7 @@ import { WORDS_AMOUNT } from "./consts";
 
 import successSound from "./assets/sound/success.mp3";
 import gameOverSound from "./assets/sound/game-over.mp3";
+import gameWinSound from "./assets/sound/game-win.mp3";
 import failureSound from "./assets/sound/failure.mp3";
 
 import "./App.css";
@@ -41,8 +42,11 @@ function App() {
       const result = i + 1;
 
       if (result === WORDS_AMOUNT) {
+        new Audio(gameWinSound).play();
         newGame();
         return 0;
+      } else {
+        new Audio(successSound).play();
       }
 
       const newLetters = wordToLetters(words[result]);
@@ -67,7 +71,6 @@ function App() {
 
         if (result === words[actualWordIndex].length) {
           nextWord();
-          new Audio(successSound).play();
           // setIsWinner(true);
           return 0;
         }
