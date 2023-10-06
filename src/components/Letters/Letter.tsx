@@ -1,29 +1,19 @@
-import { useState } from "react";
-
 import cancelImg from "../../assets/img/cancel.svg";
 
 interface Props {
   letter: string;
   index: number;
-  correctLetter: string;
+  mistakeIndex: number;
   onLetterClick: (index: number) => void;
 }
 
 export default function Letter({
   letter,
   index,
-  correctLetter,
+  mistakeIndex,
   onLetterClick,
 }: Props) {
-  const [showMistake, setShowMistake] = useState(false);
-
   const handleClick = () => {
-    if (letter !== correctLetter) {
-      setShowMistake(true);
-      setTimeout(() => {
-        setShowMistake(false);
-      }, 1000);
-    }
     onLetterClick(index);
   };
 
@@ -37,7 +27,7 @@ export default function Letter({
       </div>
       <div
         className={`absolute w-20 h-24 top-2 left-2 bg-no-repeat bg-center bg-contain ${
-          showMistake ? "" : "hidden"
+          mistakeIndex === index ? "" : "hidden"
         }`}
         style={{ backgroundImage: `url(${cancelImg})` }}
       ></div>

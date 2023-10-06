@@ -20,6 +20,7 @@ function App() {
   const [letters, setLetters] = useState<string[]>([]);
   const [actualLetterIndex, setActualLetterIndex] = useState(0);
   const [lives, setLives] = useState(5);
+  const [mistakeIndex, setMistakeIndex] = useState(-1);
 
   // const [isWinner, setIsWinner] = useState(false);
   // const [isGameActive, setIsGameActive] = useState(false);
@@ -83,6 +84,10 @@ function App() {
           newGame();
           return 5;
         }
+        setMistakeIndex(index);
+        setTimeout(() => {
+          setMistakeIndex(-1);
+        }, 1000);
         new Audio(failureSound).play();
         return l - 1;
       });
@@ -127,7 +132,7 @@ function App() {
         <div className="flex justify-center items-center border-t relative p-2">
           <Letters
             letters={letters}
-            correctLetter={words[actualWordIndex][actualLetterIndex]}
+            mistakeIndex={mistakeIndex}
             onLetterClick={onLetterClick}
           />
         </div>

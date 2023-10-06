@@ -2,13 +2,13 @@ import Letter from "./Letter";
 
 interface Props {
   letters: string[];
-  correctLetter: string;
+  mistakeIndex: number;
   onLetterClick: (index: number) => void;
 }
 
 export default function Letters({
   letters,
-  correctLetter,
+  mistakeIndex,
   onLetterClick,
 }: Props) {
   return (
@@ -18,7 +18,7 @@ export default function Letters({
           key={index}
           letter={letter}
           index={index}
-          correctLetter={correctLetter}
+          mistakeIndex={mistakeIndex}
           onLetterClick={onLetterClick}
         />
       ))}
