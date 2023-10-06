@@ -1,6 +1,8 @@
 import bearImage from "../../assets/img/bear-done.png";
 import heartImage from "../../assets/img/heart.png";
 
+import { WORDS_AMOUNT } from "../../consts";
+
 interface Props {
   lives: number;
   points: number;
@@ -14,7 +16,9 @@ export default function StatusBar({ lives, points }: Props) {
           <div
             key={index}
             className={`h-12 w-12 bg-contain bg-center bg-no-repeat p-2 ${
-              index < Math.floor(points / 4) ? "" : "grayscale contrast-0"
+              index < Math.floor(points / (WORDS_AMOUNT / 5))
+                ? ""
+                : "grayscale contrast-0"
             } `}
             style={{ backgroundImage: `url(${bearImage})` }}
           ></div>

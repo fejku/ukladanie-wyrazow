@@ -5,9 +5,13 @@ import Obraz from "./components/Obraz";
 import StatusBar from "./components/StatusBar";
 
 import { drawWords, wordToLetters } from "./utils/Utils";
+import { WORDS_AMOUNT } from "./consts";
+
+import successSound from "./assets/sound/success.mp3";
+import gameOverSound from "./assets/sound/game-over.mp3";
+import failureSound from "./assets/sound/failure.mp3";
 
 import "./App.css";
-import { WORDS_AMOUNT } from "./consts";
 
 function App() {
   const [words, setWords] = useState<string[]>([]);
@@ -63,13 +67,22 @@ function App() {
 
         if (result === words[actualWordIndex].length) {
           nextWord();
+          new Audio(successSound).play();
           // setIsWinner(true);
           return 0;
         }
         return result;
       });
     } else {
-      setLives((l) => l - 1);
+      setLives((l) => {
+        if (l === 1) {
+          new Audio(gameOverSound).play();
+          newGame();
+          return 5;
+        }
+        new Audio(failureSound).play();
+        return l - 1;
+      });
     }
   };
 
@@ -93,8 +106,8 @@ function App() {
         </div>
         <div className="flex-1 flex">
           <Obraz word={words[actualWordIndex].toLowerCase()} />
-          <div className="grow border-l ">
-            <span className="h-full flex justify-center items-center text-8xl font-elementarz">
+          <div className="grow border-l">
+            <div className="h-full flex justify-center items-center text-8xl font-elementarz relative">
               {actualWord.split("").map((letter, index) => (
                 <span
                   key={index}
@@ -105,13 +118,13 @@ function App() {
                   {letter}
                 </span>
               ))}
-            </span>
+            </div>
           </div>
         </div>
         <div className="flex justify-center items-center border-t relative p-2">
           <Letters
-            word={words[actualWordIndex]}
             letters={letters}
+            correctLetter={words[actualWordIndex][actualLetterIndex]}
             onLetterClick={onLetterClick}
           />
         </div>
