@@ -100,7 +100,7 @@ function App() {
 
   return (
     <>
-      <div className=" w-screen h-screen flex flex-col">
+      <div className="w-screen h-[100dvh] flex flex-col">
         <StatusBar lives={lives} points={actualWordIndex} />
         <div className="flex border-b justify-around gap-2 py-2">
           {[...Array(WORDS_AMOUNT)].map((_, index) => (
