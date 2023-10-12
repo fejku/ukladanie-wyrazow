@@ -8,6 +8,7 @@ export default {
       fontFamily: {
         // sans: ["elementarz", ...defaultTheme.fontFamily.sans],
         elementarz: ["elementarz", "cursive"],
+        meatloaf: ["meatloaf"],
       },
     },
   },

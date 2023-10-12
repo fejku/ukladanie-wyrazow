@@ -6,3 +6,8 @@
   font-family: "elementarz";
   src: url("./assets/font/Elementarz.ttf");
 }
+
+@font-face {
+  font-family: "meatloaf";
+  src: url("./assets/font/Meatloaf.ttf");
+}
