@@ -73,11 +73,8 @@ const ScoreScreen = () => {
           />
         ))}
       </div>
-      <div className="relative text-6xl font-elementarz mb-24 md:text-8xl select-none">
-        Punkty:{" "}
-        <span className="absolute font-meatloaf text-8xl -top-6 -right-16 md:text-[10rem] md:-top-11 md:-right-32">
-          {points}
-        </span>
+      <div className="text-8xl font-meatloaf mb-24 md:text-[10rem] select-none">
+        Punkty: {points}
       </div>
       <button
         className={`animate-bounce ${hidePlayAgainBtn && "invisible"}`}
