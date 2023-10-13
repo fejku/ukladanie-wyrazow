@@ -47,7 +47,7 @@ const ScoreScreen = () => {
   return (
     <>
       <div
-        className="h-screen bg-no-repeat bg-center bg-cover flex items-center flex-col"
+        className="h-screen bg-no-repeat bg-center bg-cover flex items-center flex-col overflow-y-hidden"
         style={{ backgroundImage: `url(${bgImg})` }}
       >
         <div className="flex basis-2/12 items-end gap-4">
