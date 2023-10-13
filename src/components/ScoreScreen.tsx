@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// import Confetti from "react-confetti";
+import Confetti from "react-confetti";
 
 import { BEARS_AMOUNT, LIVES_AMOUNT } from "../consts";
 import { useAppDispatch, useAppSelector } from "../store/storeHooks";
@@ -10,10 +10,10 @@ import bearImg from "../assets/img/bear-done.png";
 import heartImg from "../assets/img/heart.png";
 import { reset } from "../store/features/wordsSlice";
 
-// import useWindowSize from "react-use/lib/useWindowSize";
+import useWindowSize from "react-use/lib/useWindowSize";
 
 const ScoreScreen = () => {
-  // const { width, height } = useWindowSize();
+  const { width, height } = useWindowSize();
   const { bears } = useAppSelector((state) => state.bears);
   const { lives } = useAppSelector((state) => state.lives);
   const dispatch = useAppDispatch();
@@ -47,7 +47,7 @@ const ScoreScreen = () => {
   return (
     <>
       <div
-        className="h-screen bg-no-repeat bg-center bg-cover flex items-center flex-col overflow-y-hidden"
+        className="h-screen bg-no-repeat bg-center bg-cover flex items-center flex-col"
         style={{ backgroundImage: `url(${bgImg})` }}
       >
         <div className="flex basis-2/12 items-end gap-4">
@@ -74,11 +74,11 @@ const ScoreScreen = () => {
             />
           ))}
         </div>
-        <div className="flex basis-3/12 items-center text-8xl font-meatloaf select-none md:text-[10rem]">
+        <div className="flex basis-4/12 items-center text-8xl font-meatloaf select-none md:text-[10rem]">
           Punkty: {points}
         </div>
         <button
-          className={`basis-3/12 animate-bounce ${
+          className={`basis-4/12 animate-bounce ${
             hidePlayAgainBtn && "invisible"
           }`}
           onClick={handlePlayAgainClick}
@@ -90,7 +90,7 @@ const ScoreScreen = () => {
           />
         </button>
       </div>
-      {/* <Confetti width={width} height={height} run={lives > 0} /> */}
+      <Confetti width={width} height={height} run={lives > 0} />
     </>
   );
 };
