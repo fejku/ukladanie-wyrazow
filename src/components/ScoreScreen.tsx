@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Confetti from "react-confetti";
+// import Confetti from "react-confetti";
 
 import { BEARS_AMOUNT, LIVES_AMOUNT } from "../consts";
 import { useAppDispatch, useAppSelector } from "../store/storeHooks";
@@ -10,10 +10,10 @@ import bearImg from "../assets/img/bear-done.png";
 import heartImg from "../assets/img/heart.png";
 import { reset } from "../store/features/wordsSlice";
 
-import useWindowSize from "react-use/lib/useWindowSize";
+// import useWindowSize from "react-use/lib/useWindowSize";
 
 const ScoreScreen = () => {
-  const { width, height } = useWindowSize();
+  // const { width, height } = useWindowSize();
   const { bears } = useAppSelector((state) => state.bears);
   const { lives } = useAppSelector((state) => state.lives);
   const dispatch = useAppDispatch();
