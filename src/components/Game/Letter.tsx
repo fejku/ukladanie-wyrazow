@@ -105,7 +105,7 @@ const Letter: React.FC<Props> = ({ letter, letterIndex }) => {
 
   return (
     <button
-      className="relative border rounded-lg py-2 w-9 my-2 font-elementarz text-4xl select-none bg-white bg-opacity-50 md:text-8xl md:w-16 lg:w-24"
+      className="relative border rounded-lg py-2 w-14 my-2 font-elementarz text-5xl select-none bg-white bg-opacity-50 md:text-8xl md:w-16 lg:w-24"
       onClick={onLetterClick}
     >
       {letter}

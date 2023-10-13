@@ -45,49 +45,53 @@ const ScoreScreen = () => {
   };
 
   return (
-    <div
-      className="h-screen bg-no-repeat bg-center bg-cover flex justify-center items-center flex-col "
-      style={{ backgroundImage: `url(${bgImg})` }}
-    >
-      <div className="flex mb-20 gap-4">
-        {[...Array(BEARS_AMOUNT)].map((_, index) => (
-          <img
-            key={index}
-            src={bearImg}
-            alt="Bear"
-            className={`h-16 md:h-24 select-none ${
-              index >= bearIndex && "grayscale"
-            }`}
-          />
-        ))}
-      </div>
-      <div className="flex mb-24 gap-4">
-        {[...Array(LIVES_AMOUNT)].map((_, index) => (
-          <img
-            key={index}
-            src={heartImg}
-            alt="Heart"
-            className={`h-10 md:h-16 select-none  ${
-              index >= liveIndex && "grayscale"
-            }`}
-          />
-        ))}
-      </div>
-      <div className="text-8xl font-meatloaf mb-24 md:text-[10rem] select-none">
-        Punkty: {points}
-      </div>
-      <button
-        className={`animate-bounce ${hidePlayAgainBtn && "invisible"}`}
-        onClick={handlePlayAgainClick}
+    <>
+      <div
+        className="h-screen bg-no-repeat bg-center bg-cover flex items-center flex-col"
+        style={{ backgroundImage: `url(${bgImg})` }}
       >
-        <img
-          src={refreshImg}
-          alt="Refresh button"
-          className="h-24 w-24 select-none md:h-32 md:w-32"
-        />
-      </button>
+        <div className="flex basis-2/12 items-end gap-4">
+          {[...Array(BEARS_AMOUNT)].map((_, index) => (
+            <img
+              key={index}
+              src={bearImg}
+              alt="Bear"
+              className={`h-16 select-none md:h-24 ${
+                index >= bearIndex && "grayscale"
+              }`}
+            />
+          ))}
+        </div>
+        <div className="flex basis-2/12 items-center gap-4">
+          {[...Array(LIVES_AMOUNT)].map((_, index) => (
+            <img
+              key={index}
+              src={heartImg}
+              alt="Heart"
+              className={`h-10 md:h-16 select-none  ${
+                index >= liveIndex && "grayscale"
+              }`}
+            />
+          ))}
+        </div>
+        <div className="flex basis-4/12 items-center text-8xl font-meatloaf select-none md:text-[10rem]">
+          Punkty: {points}
+        </div>
+        <button
+          className={`basis-4/12 animate-bounce ${
+            hidePlayAgainBtn && "invisible"
+          }`}
+          onClick={handlePlayAgainClick}
+        >
+          <img
+            src={refreshImg}
+            alt="Refresh button"
+            className="h-24 w-24 select-none md:h-32 md:w-32"
+          />
+        </button>
+      </div>
       <Confetti width={width} height={height} run={lives > 0} />
-    </div>
+    </>
   );
 };
 
