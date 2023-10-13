@@ -74,7 +74,7 @@ const ScoreScreen = () => {
             />
           ))}
         </div>
-        <div className="flex basis-4/12 items-center text-8xl font-meatloaf select-none md:text-[10rem]">
+        <div className="flex basis-3/12 items-center text-8xl font-meatloaf select-none md:text-[10rem]">
           Punkty: {points}
         </div>
         <button
