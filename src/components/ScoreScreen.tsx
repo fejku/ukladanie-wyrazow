@@ -90,7 +90,7 @@ const ScoreScreen = () => {
           />
         </button>
       </div>
-      <Confetti width={width} height={height} run={lives > 0} />
+      {/* <Confetti width={width} height={height} run={lives > 0} /> */}
     </>
   );
 };
